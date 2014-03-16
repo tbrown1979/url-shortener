@@ -1,5 +1,18 @@
-extends layout
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
+    script(src='/javascripts/submitController.js')
 
-block content
+  body(ng-app="shortenApp")
   h1= title
-  p Welcome to #{title}
+
+  form(name="form" novalidate)
+    div 
+      input(name="urlEntry" type="url" ng-model="urlEntry" ng-required="true")
+      p(ng-show="form.urlEntry.$invalid && !form.urlEntry.$pristine").
+        invalid url
+
+      input(name="urlSubmit" ng-disabled="form.$invalid" type="button" value="Submit")
