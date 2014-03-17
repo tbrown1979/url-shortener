@@ -15,7 +15,7 @@ function statusResponse(status, msg) {
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
-
+//accepts json of this format { "url" : "www.example.com"}
 exports.shorten = function(req, res){
   console.log(JSON.stringify(req));
   client.incr("uniqueid", function (err, reply) {
@@ -26,14 +26,30 @@ exports.shorten = function(req, res){
         if (err) {
           res.json(statusResponse(status, err));
         } else {
-          //may have to check that reply != null
-          var short_url = make_short_url(reply);
-        }
-      }
+          //may have to check that reply != null, but maybe not!
+          var short_url_id = make_short_url_id(reply);
+          //should check that it's a valid url
+          var json_response = {
+            "status" : "success",
+            "orig_url" : req.body.url,
+            "short_url" : req.protocol + "://" + req.get('host') + short_url_id
+          };
+          client.set("short_url", req.body.url, 
+            function (err, reply) {
+              if (err) {
+                res.json(statusResponse(status, err));
+              } else {
+                res.json(json_response);
+              }
+          });
+        };
+      });
     }
   });
+}
 
-function make_short_url(unique_id) {
+
+function make_short_url_id(unique_id) {
   var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   var convert_unique_id = 
     function convert_base_ten_num(num, base) {
@@ -52,24 +68,4 @@ function make_short_url(unique_id) {
     short_url += alphabet[letters_by_index[i]];
   }
   return short_url;
-};
-
-
-
-// alert(bijective(125));
-// exports.shorten = function(req, res){
-//   console.log(JSON.stringify(req));
-//   client.get(accessedUrl,
-//     function(err, reply) { 
-//       if (err) { 
-//         res.json(statusResponse("failed", err)); 
-//       } else {
-//         if (reply === null) {
-//           res.json(statusResponse("success", "need to actually do stuff"));
-//         } else {
-//           res.json(statusResponse("success", reply));
-//         }
-//       }
-//     }
-//   );
-// };
+}
