@@ -9,10 +9,10 @@ html
   body(ng-app="shortenApp")
   h1= title
 
-  form(name="form" novalidate)
+  form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
     div 
-      input(name="urlEntry" type="url" ng-model="urlEntry" ng-required="true")
-      p(ng-show="form.urlEntry.$invalid && !form.urlEntry.$pristine").
+      input(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true")
+      p(ng-show="form.urlToShorten.$invalid && !form.urlToShorten.$pristine").
         invalid url
 
-      input(name="urlSubmit" ng-disabled="form.$invalid" type="button" value="Submit")
+      input(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Submit")

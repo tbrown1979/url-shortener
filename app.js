@@ -31,7 +31,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/shorten', routes.shorten);
+app.post('/shorten', routes.shorten);
 // app.get('/:test', routes.test);
 
 http.createServer(app).listen(app.get('port'), function(){

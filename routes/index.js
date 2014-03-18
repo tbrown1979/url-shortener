@@ -17,7 +17,7 @@ exports.index = function(req, res){
 };
 //accepts json of this format { "url" : "www.example.com"}
 exports.shorten = function(req, res){
-  console.log(JSON.stringify(req));
+  // console.log(JSON.stringify(req));
   client.incr("uniqueid", function (err, reply) {
     if (err) {
       res.json(statusResponse(status, err));
@@ -32,7 +32,7 @@ exports.shorten = function(req, res){
           var json_response = {
             "status" : "success",
             "orig_url" : req.body.url,
-            "short_url" : req.protocol + "://" + req.get('host') + short_url_id
+            "short_url" : req.protocol + "://" + req.get('host') + "/" + short_url_id
           };
           client.set("short_url", req.body.url, 
             function (err, reply) {
