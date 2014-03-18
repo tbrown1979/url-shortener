@@ -34,7 +34,7 @@ exports.shorten = function(req, res){
             "orig_url" : req.body.url,
             "short_url" : req.protocol + "://" + req.get('host') + "/" + short_url_id
           };
-          client.set("short_url", req.body.url, 
+          client.set(short_url_id, req.body.url, 
             function (err, reply) {
               if (err) {
                 res.json(statusResponse(status, err));
