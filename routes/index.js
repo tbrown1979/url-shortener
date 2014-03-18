@@ -48,6 +48,23 @@ exports.shorten = function(req, res){
   });
 }
 
+exports.redirect = function(req, res) {
+  var short_url = req.params.short_url;
+  client.get(short_url,
+    function(err, reply) {
+      if (err) {
+        res.json(statusResponse("unsuccessful", err));
+      } else {
+        if (reply === null) {
+          res.json(statusResponse("unsuccessful", "url does not exist"));
+        } else {
+          res.redirect(reply);
+        }
+      }
+    }
+  );
+}
+
 
 function make_short_url_id(unique_id) {
   var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
