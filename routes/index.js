@@ -12,12 +12,11 @@ function statusResponse(status, msg) {
   return { "status" : status, "message" : msg }
 }
 
-exports.index = function(req, res){
+exports.index = function(req, res) {
   res.render('index', { title: 'Express' });
 };
 //accepts json of this format { "url" : "www.example.com"}
-exports.shorten = function(req, res){
-  // console.log(JSON.stringify(req));
+exports.shorten = function(req, res) {
   client.incr("uniqueid", function (err, reply) {
     if (err) {
       res.json(statusResponse(status, err));
@@ -64,7 +63,6 @@ exports.redirect = function(req, res) {
     }
   );
 }
-
 
 function make_short_url_id(unique_id) {
   var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
