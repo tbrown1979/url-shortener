@@ -13,7 +13,7 @@ function statusResponse(status, msg) {
 }
 
 exports.index = function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'URL_S' });
 };
 //accepts json of this format { "url" : "www.example.com"}
 exports.shorten = function(req, res) {

@@ -1,24 +1,35 @@
 doctype html
 html
   head
+    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css")
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
     script(src='/javascripts/submitController.js')
 
   body(ng-app="shortenApp")
+    div.container
+      div.title
+        h1= title
+      div.alert.alert-danger(ng-show="form.$invalid && !form.$pristine")
+        p.
+          Invalid Url!
+      div.test
+        div.submissionDiv
+          form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
+            .row
+              .input-group
+                input.form-control.urlEntry(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true" placeholder="Enter url here")
+                span.input-group-btn
+                  button.btn.btn-default.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten") Shorten  
+      div.info
+        p.
+          This will shorten your urls.  
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+    script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
 
 
 
-  div.wrap
-    div.title
-      h1= title
-      p(ng-show="form.urlToShorten.$invalid && !form.urlToShorten.$pristine").
-        invalid url
-    div.submissionDiv
-      form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
-        div
-          input.urlEntry(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true")
 
-
-          input.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten")

@@ -1,70 +1,87 @@
-/*
-Styling heavily influenced/stolen from 
-Karan Goel's own url shortener
-www.github.com/karan/s
-*/
-
-body {
+/*body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  height: 100%;
 }
 
-.wrap {
-  background: radial-gradient(#4F2073, #2E2C2C);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.title {
+  text-align: center;
+  height: 50%;
+  margin-top: 40%;
 }
 
 .submissionDiv {
-  position: fixed;
+  overflow: hidden;
+  margin-left: 25%;
   width: 50%;
   top: 50%;
   left: 25%;
   right: 25%;
-  height: 100px;
+  margin-bottom: 30%;
 }
 
 .urlEntry {
-  padding: 10px;
-  width: 85%;
   height: 35px;
-  color : #747862;
-  border:0;
-  margin-bottom:0px;
-  -webkit-border-top-left-radius: 15px;
-  -webkit-border-bottom-left-radius: 15px;
-  -moz-border-radius-topleft: 15px;
-  -moz-border-radius-bottomleft: 15px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  background: rgba(0,0,0,.1);
-  float: left;
-  box-sizing:border-box;
-  -moz-box-sizing:border-box; /* Firefox */
+  border: 0;
+  margin-bottom: 0px;
+  background: rgba(0,0,0,.2);
+  box-sizing: border-box;
   box-shadow: 0 1px 0 rgba(255,255,255,.15), 0 2px 4px rgba(0,0,0,.2) inset, 0 0 12px rgba(255,255,255,.1);
   outline: 0px;
+  font-size: 15px;
+  color: #ccc;
+}
 
+.urlEntry:focus {
+  outline: 1px;
+  border: 1px;
 }
 
 .urlSubmit {
-  width: 15%;
   height: 35px;
-  background: rgba(0,0,0,.4); 
-  border: 0;
-  box-shadow: 1px 1px 1px #292626;
+  background: rgba(0,0,0,.0); 
+}
 
-  -webkit-border-top-right-radius: 15px;
-  -webkit-border-bottom-right-radius: 15px;
-  -moz-border-radius-topright: 15px;
-  -moz-border-radius-bottomright: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+.urlSubmit:enabled {
+  background: rgba(0,0,0,.5); 
+}
+
+.urlSubmit:enabled:hover {
+  background: rgba(0,0,0,.75);
 }
 
 a {
   color: #00B7FF;
+}
+
+.alert {
+  padding: 4px;
+  width: 20%;
+  margin-bottom: 10px;
+  margin-left: 25%;
+}
+
+.wrapper {
+  background: radial-gradient(#9A05A6, #58255C);
+  background: -webkit-radial-gradient(#9A05A6, #58255C);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+}*/
+
+
+.test {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.submissionDiv {
+  width: 100%;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
 }
