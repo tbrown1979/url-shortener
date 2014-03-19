@@ -7,12 +7,18 @@ html
     script(src='/javascripts/submitController.js')
 
   body(ng-app="shortenApp")
-  h1= title
 
-  form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
-    div 
-      input(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true")
+
+
+  div.wrap
+    div.title
+      h1= title
       p(ng-show="form.urlToShorten.$invalid && !form.urlToShorten.$pristine").
         invalid url
+    div.submissionDiv
+      form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
+        div
+          input.urlEntry(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true")
 
-      input(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Submit")
+
+          input.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten")
