@@ -21,11 +21,11 @@ head
           .inner.cover
             h1.cover-heading Shorten your url
             div.form
-              form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
+              form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)" ng-model="form")
                 .input-group
                   input.form-control.urlEntry(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true" placeholder="Enter url here")
                   span.input-group-btn
-                    button.btn.btn-default.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten") Shorten  
+                    button.btn.btn-default.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten") Shorten
           .mastfoot
             .inner
               p
