@@ -7,13 +7,14 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #58255C;
+  background-color: #1A9622;
 }
 body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
-  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  background: radial-gradient(#1A9622, #053008);
+  /*box-shadow: inset 0 0 10px rgba(0,0,0,1);*/
   overflow: hidden;
 }
 
@@ -40,7 +41,6 @@ body {
 .form {
   width: 50%;
   margin: 0 auto;
-  height: 100%;
 }
 
 .urlEntry {
@@ -52,20 +52,6 @@ body {
   outline: 0px;
   font-size: 15px;
   color: #ccc;
-}
-
-.masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
 }
 
 .cover {
@@ -81,13 +67,14 @@ body {
   color: rgba(255,255,255,.5);
 }
 
+@media (min-width: 1400px) {
+  .form {
+    width: 700px;
+  }
+}
+
 /* If height or width gets too low, no longer do this */
 @media (min-width: 768px) and (min-height: 280px)  {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
   .mastfoot {
     position: fixed;
     bottom: 0;
@@ -97,7 +84,6 @@ body {
     vertical-align: middle;
   }
 
-  .masthead,
   .mastfoot,
   .cover-container {
     width: 100%;

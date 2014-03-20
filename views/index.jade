@@ -1,23 +1,18 @@
 html(lang='en')
 head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+  link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css")
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+  script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
+  script(src='/javascripts/submitController.js')
 
-    title url_s
+  title url_s
 
-    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
-    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css")
-    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
-    script(src='/javascripts/submitController.js')
-    link(rel='stylesheet', href='/stylesheets/style.css')
   body(ng-app="shortenApp")
     .site-wrapper
       .site-wrapper-inner
         .cover-container
-          .masthead.clearfix
-            .inner
-              h3.masthead-brand URL_S
           .inner.cover
             h1.cover-heading Shorten your url
             div.form
