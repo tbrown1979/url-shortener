@@ -1,27 +1,48 @@
-/*body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  text-align: center;
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+html,
+body {
   height: 100%;
+  background-color: #58255C;
 }
-
-.title {
+body {
+  color: #fff;
   text-align: center;
-  height: 50%;
-  margin-top: 40%;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  overflow: hidden;
 }
 
-.submissionDiv {
-  overflow: hidden;
-  margin-left: 25%;
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.inner {
+  padding: 30px;
+}
+
+.form {
   width: 50%;
-  top: 50%;
-  left: 25%;
-  right: 25%;
-  margin-bottom: 30%;
+  margin: 0 auto;
 }
 
 .urlEntry {
-  height: 35px;
   border: 0;
   margin-bottom: 0px;
   background: rgba(0,0,0,.2);
@@ -32,56 +53,53 @@
   color: #ccc;
 }
 
-.urlEntry:focus {
-  outline: 1px;
-  border: 1px;
-}
-
-.urlSubmit {
-  height: 35px;
-  background: rgba(0,0,0,.0); 
-}
-
-.urlSubmit:enabled {
-  background: rgba(0,0,0,.5); 
-}
-
-.urlSubmit:enabled:hover {
-  background: rgba(0,0,0,.75);
-}
-
-a {
-  color: #00B7FF;
-}
-
-.alert {
-  padding: 4px;
-  width: 20%;
+.masthead-brand {
+  margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 25%;
 }
 
-.wrapper {
-  background: radial-gradient(#9A05A6, #58255C);
-  background: -webkit-radial-gradient(#9A05A6, #58255C);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
-}*/
-
-
-.test {
-  width: 50%;
-  margin: 0 auto;
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
 }
 
-.submissionDiv {
-  width: 100%;
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
 }
 
-.col-centered{
-  float: none;
-  margin: 0 auto;
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
 }
+
+/* If height or width gets too low, no longer do this */
+@media (min-width: 768px) and (min-height: 280px)  {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%;
+  }
+
+

@@ -1,35 +1,40 @@
-doctype html
-html
-  head
+html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    title url_s
+
     link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
     link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css")
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js')
     script(src='/javascripts/submitController.js')
-
+    link(rel='stylesheet', href='/stylesheets/style.css')
   body(ng-app="shortenApp")
-    div.container
-      div.title
-        h1= title
-      div.alert.alert-danger(ng-show="form.$invalid && !form.$pristine")
-        p.
-          Invalid Url!
-      div.test
-        div.submissionDiv
-          form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
-            .row
-              .input-group
-                input.form-control.urlEntry(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true" placeholder="Enter url here")
-                span.input-group-btn
-                  button.btn.btn-default.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten") Shorten  
-      div.info
-        p.
-          This will shorten your urls.  
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          .masthead.clearfix
+            .inner
+              h3.masthead-brand URL_S
+          .inner.cover
+            h1.cover-heading Shorten your url
+            div.form
+              form(name="form" novalidate ng-controller="toggleSubmit" ng-submit="shorten_url(urlToShorten)")
+                .input-group
+                  input.form-control.urlEntry(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true" placeholder="Enter url here")
+                  span.input-group-btn
+                    button.btn.btn-default.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten") Shorten  
+          .mastfoot
+            .inner
+              p
+                | URL_Shortener 
+                a(href='https://github.com/tbrown1979/url-shortener') project
+                | , by 
+                a(href='https://github.com/tbrown1979') Taylor Brown
+                | .
 
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
     script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
-
-
-
 
