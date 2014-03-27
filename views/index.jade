@@ -22,6 +22,8 @@ head
                   input.form-control.urlEntry(name="urlToShorten" type="url" ng-model="urlToShorten" ng-required="true" placeholder="Enter url here")
                   span.input-group-btn
                     button.btn.btn-default.urlSubmit(name="urlSubmit" ng-disabled="form.$invalid" type="submit" value="Shorten") Shorten
+                div(class="alert alert-danger" ng-show="form.$invalid && !form.$pristine")
+                  |Please enter a valid url
           .mastfoot
             .inner
               p
